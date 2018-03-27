@@ -73,7 +73,7 @@
 			open http://127.0.0.1:8000/</span>
       </div>
     </noscript>
-<a href="http://www.misp-project.org/"><img src="http://www.misp-project.org/assets/images/misp-small.png?src=sizer" alt="" width="100"></a>
+<a href="http://www.misp-project.org/" target="_new"><img src="http://www.misp-project.org/assets/images/misp-small.png?src=sizer" alt="" width="100"></a>
 <h2>MISP Hardware Sizer (calculator)</h2>
     <div id="js-example-change-attributes">
         <h3>Number of users: <output></output></h3>
@@ -87,7 +87,7 @@
 <HR>
     <div id="js-example-change-attributes">
         <h3>Number of attributes (=field values): <output></output></h3>
-        <input id="attributes_count_id" name="attributes_count" type="range" min="10" max="10000000" step="10" data-rangeslider>
+        <input id="attributes_count_id" name="attributes_count" type="range" min="10" max="10000000" step="10"  value="1300000" data-rangeslider>
         <label style="display:none"><input type="number" name="min" value="10"> <code>min</code></label>
         <label><input type="number" name="max" value="10000000"> <code>max</code></label>
         <label style="display:none"><input type="number" name="step" value="10"> <code>step</code></label>
@@ -110,7 +110,7 @@
 
 	Resulting RAM: <input id="result_RAM_id" name="result_RAM" type="field"> GB<br/>
 	Resulting DISK: <input id="result_DISK_id" name="result_DISK" type="field"> GB<br/>
-	Resulting CPU: <input id="result_CPU_id" name="result_CPU" type="field"> x vCPUs (XEON Level)<br/>
+	Resulting CPU: <input id="result_CPU_id" name="result_CPU" type="field"> * vCPU core(s) (Intel Xeon Level)<br/>
 
 <HR>
 <a href="README.txt">README.txt</a>
