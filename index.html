@@ -135,7 +135,7 @@
 			// Please adapt heuristics here
             ram_output.value = 2 + Math.floor(c_users_count / 1000) + Math.floor(c_attributes_correlation / 2) + Math.floor(c_attributes_count / 200000);
             disk_output.value = 2 + Math.floor(c_users_count/10) + Math.floor(c_attributes_correlation/10) + Math.floor(c_attributes_count / 1000);
-			cpu_output.value = Math.floor(c_users_count / 1000.0 + c_attributes_correlation / 5.0 + c_attributes_count / 90000000.0 + 1);
+			cpu_output.value = Math.floor(c_users_count / 1000.0 + c_attributes_correlation / 15.0 + c_attributes_count / 90000000.0 + 1);
 		}
 
         // Example functionality to demonstrate a value feedback
