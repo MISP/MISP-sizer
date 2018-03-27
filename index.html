@@ -68,9 +68,9 @@
 <h2>MISP Sizer</h2>
     <div id="js-example-change-attributes">
         <h3>Number of users: <output></output></h3>
-        <input id="users_count_id" name="users_count" type="range" min="10" max="100" step="5" data-rangeslider>
+        <input id="users_count_id" name="users_count" type="range" min="10" max="1000" step="5" data-rangeslider>
         <label style="display:none"><input type="number" name="min" value="10"> <code>min</code></label>
-        <label><input type="number" name="max" value="100"> <code>max</code></label>
+        <label><input type="number" name="max" value="1000"> <code>max</code></label>
         <label style="display:none"><input type="number" name="step" value="5"> <code>step</code></label>
         <button>Change</button>
     </div>
@@ -78,9 +78,9 @@
 <HR>
     <div id="js-example-change-attributes">
         <h3>Number of attributes: <output></output></h3>
-        <input id="attributes_count_id" name="attributes_count" type="range" min="10" max="100" step="5" data-rangeslider>
+        <input id="attributes_count_id" name="attributes_count" type="range" min="10" max="10000000" step="5" data-rangeslider>
         <label style="display:none"><input type="number" name="min" value="10"> <code>min</code></label>
-        <label><input type="number" name="max" value="100"> <code>max</code></label>
+        <label><input type="number" name="max" value="10000000"> <code>max</code></label>
         <label style="display:none"><input type="number" name="step" value="5"> <code>step</code></label>
         <button>Change</button>
     </div>
@@ -103,55 +103,7 @@
 
 <HR>
 
-    <div id="js-example-change-attributes">
-        <h2>Programmatic attribute changes</h2>
-        <input type="range" min="10" max="100" step="5" data-rangeslider>
-        <output></output>
-        <label><input type="number" name="min" value="10"> <code>min</code></label><br>
-        <label><input type="number" name="max" value="100"> <code>max</code></label><br>
-        <label><input type="number" name="step" value="5"> <code>step</code></label>
-        <br><br>
-        <button>Change</button>
-    </div>
 
-    <br>
-    <br>
-    <br>
-    <br>
-
-    <div id="js-example-destroy">
-        <h2>Destroy a plugin instance</h2>
-        <input type="range" min="10" max="1000" step="10" value="500" data-rangeslider>
-        <output></output>
-        <button data-behaviour="destroy">Destroy</button>
-        <button data-behaviour="initialize">Initialize</button>
-    </div>
-
-    <br>
-    <br>
-
-    <div id="js-example-hidden">
-        <h2>Consider initialization and update of hidden elements</h2>
-        <div style="display:none">
-            <input type="range" min="10" max="100" data-rangeslider>
-            <output></output>
-        </div>
-        <button data-behaviour="toggle">Toggle visibility</button>
-    </div>
-
-    <br>
-    <br>
-
-    <div id="js-example-hidden">
-        <h2>Combination with native <code>&lt;details&gt;</code> element</h2>
-        <details>
-            <summary>Toggle</summary>
-            <br>
-            <br>
-            <input type="range" min="10" max="100" value="20" data-rangeslider>
-            <output></output>
-        </details>
-    </div>
 
     <script src="//localhost:8081"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -173,14 +125,16 @@
 
 			
 			var c_users_count = parseInt(document.getElementById('users_count_id').value);
+			var c_attributes_count = parseInt(document.getElementById('attributes_count_id').value);
+			var c_attributes_correlation = parseInt(document.getElementById('attributes_correlation_id').value);
 
 			// console.log(c_users_count);
             var ram_output = document.getElementById('result_RAM_id');
             var disk_output = document.getElementById('result_DISK_id');
             var cpu_output = document.getElementById('result_CPU_id');
-            ram_output.value = c_users_count * 19;  // 19 random heuristic value
-            disk_output.value = c_users_count * 3;  // 19 random heuristic value
-			cpu_output.value = Math.floor(c_users_count / 100.0 + 1);  // 19 random heuristic value
+            ram_output.value = Math.floor(c_users_count / 1000) + Math.floor(c_attributes_correlation / 2) + Math.floor(c_attributes_count / 20000);
+            disk_output.value = c_users_count * 2 + c_attributes_correlation * 20 + c_attributes_count * 5;
+			cpu_output.value = Math.floor(c_users_count / 200.0 + c_attributes_correlation / 5.0 + c_attributes_count / 300.0 + 1);
 		}
 
         // Example functionality to demonstrate a value feedback
