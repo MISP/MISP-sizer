@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>MISP Hardware Sizer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../dist/rangeslider.css">
+    <link rel="stylesheet" href="rangeslider.css">
     <style>
         *,
         *:before,
@@ -106,7 +106,7 @@
 
     <script src="//localhost:8081"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="../dist/rangeslider.js"></script>
+    <script src="rangeslider.js"></script>
     <script>
 	// From : https://github.com/andreruffert/rangeslider.js/blob/develop/example/index.html
     $(function() {
@@ -132,6 +132,7 @@
             var ram_output = document.getElementById('result_RAM_id');
             var disk_output = document.getElementById('result_DISK_id');
             var cpu_output = document.getElementById('result_CPU_id');
+			// Please adapt heuristics here
             ram_output.value = 2 + Math.floor(c_users_count / 1000) + Math.floor(c_attributes_correlation / 2) + Math.floor(c_attributes_count / 200000);
             disk_output.value = 2 + Math.floor(c_users_count/10) + Math.floor(c_attributes_correlation/10) + Math.floor(c_attributes_count / 1000);
 			cpu_output.value = Math.floor(c_users_count / 1000.0 + c_attributes_correlation / 5.0 + c_attributes_count / 90000000.0 + 1);
