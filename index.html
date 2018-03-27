@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>rangeslider.js</title>
+    <title>MISP Hardware Sizer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../dist/rangeslider.css">
     <style>
@@ -65,7 +65,7 @@
     <![endif]-->
 </head>
 <body>
-<h2>MISP Sizer</h2>
+<h2>MISP Hardware Sizer (calculator)</h2>
     <div id="js-example-change-attributes">
         <h3>Number of users: <output></output></h3>
         <input id="users_count_id" name="users_count" type="range" min="10" max="1000" step="5" data-rangeslider>
@@ -104,11 +104,11 @@
 <HR>
 
 
-
     <script src="//localhost:8081"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="../dist/rangeslider.js"></script>
     <script>
+	// From : https://github.com/andreruffert/rangeslider.js/blob/develop/example/index.html
     $(function() {
 
         var $document = $(document);
@@ -148,6 +148,10 @@
             valueOutput(e.target);
 			result_compute();
         });
+		
+		$( document ).ready(function() {
+		    result_compute();
+		});
 
         // Example functionality to demonstrate disabled functionality
         $document .on('click', '#js-example-disabled button[data-behaviour="toggle"]', function(e) {
