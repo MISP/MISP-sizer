@@ -34,6 +34,15 @@
             width: 100%;
         }
 
+        result_RAM {
+            display: block;
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+            margin: 30px 0;
+            width: 100%;
+        }
+
         .u-left {
             float: left;
         }
@@ -69,15 +78,9 @@
 
 <HR>
 
-	<result_RAM></result_RAM>
+	result_RAM: <input id="result_RAM_id" name="result_RAM" type="field">
 
 <HR>
-    <div id="js-example-disabled">
-        <h2><code>disabled</code></h2>
-        <input type="range" min="10" max="100" data-rangeslider disabled>
-        <output></output>
-        <button data-behaviour="toggle">Toggle disabled state</button>
-    </div>
 
     <div id="js-example-change-attributes">
         <h2>Programmatic attribute changes</h2>
@@ -143,9 +146,14 @@
         var textContent = ('textContent' in document) ? 'textContent' : 'innerText';
 
 		function result_compute() {
-			var ram_result = 0;
-			var cpu_count_result = 0;
-			var disk_result = 0;
+			// var ram_result = 0;
+			// var cpu_count_result = 0;
+			// var disk_result = 0;
+			
+			var c_users_count = parseInt(document.getElementById('users_count_id').value);
+			console.log(c_users_count);
+            var ram_output = document.getElementById('result_RAM_id');
+            ram_output.value = c_users_count * 19;  // 19 random heuristic value
 		}
 
         // Example functionality to demonstrate a value feedback
@@ -157,6 +165,7 @@
 
         $document.on('input', 'input[type="range"], ' + selector, function(e) {
             valueOutput(e.target);
+			result_compute();
         });
 
         // Example functionality to demonstrate disabled functionality
