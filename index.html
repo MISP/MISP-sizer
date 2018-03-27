@@ -77,7 +77,7 @@
 <h2>MISP Hardware Sizer (calculator)</h2>
     <div id="js-example-change-attributes">
         <h3>Number of users: <output></output></h3>
-        <input id="users_count_id" name="users_count" type="range" min="0" max="1000" step="10" data-rangeslider>
+        <input id="users_count_id" name="users_count" type="range" min="0" max="1000" step="10" value="100" data-rangeslider>
         <label style="display:none"><input type="number" name="min" value="0"> <code>min</code></label>
         <label><input type="number" name="max" value="1000"> <code>max</code></label>
         <label style="display:none"><input type="number" name="step" value="10"> <code>step</code></label>
@@ -99,7 +99,7 @@
         <h3>Percentage of attributes that correlate / overlap:</h3>
 		<P>
 			0% : OSINT free text attributes with no chance of two attributes in the database having the same value.<br/>
-			50% : a given attribute field will have the same value in 50% of events (already a huge value, rare and costly case)
+			50% : a given attribute field will have the same value in 50% of events (already a huge value, rare and costly case)<br/>
 			If unknown, leave at 25% which is currently a good average.
 		</P>
 		<output></output>
