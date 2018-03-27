@@ -88,8 +88,9 @@
 <HR>
     <div id="js-example-change-attributes">
         <h3>Percentage of attributes that correlate / overlap:</h3>
-		<P>0% : OSINT free text attributes with no chance of two attributes in the database having the same value.<br/>
-			50% : a given attribute field value will be in 50% of events
+		<P>
+			0% : OSINT free text attributes with no chance of two attributes in the database having the same value.<br/>
+			50% : a given attribute field will have the same value in 50% of events (already a huge value, rare and costly case)
 		</P>
 		<output></output>
         <input id="attributes_correlation_id" name="attributes_correlation" type="range" min="0" max="100" value="10" data-rangeslider>
@@ -97,9 +98,9 @@
 
 <HR>
 
-	result_RAM: <input id="result_RAM_id" name="result_RAM" type="field"> Gb<br/>
-	result_DISK: <input id="result_DISK_id" name="result_DISK" type="field"> Gb<br/>
-	result_CPU: <input id="result_CPU_id" name="result_CPU" type="field"> x CPUs<br/>
+	Resulting RAM: <input id="result_RAM_id" name="result_RAM" type="field"> Gb<br/>
+	Resulting DISK: <input id="result_DISK_id" name="result_DISK" type="field"> Gb<br/>
+	Resulting CPU: <input id="result_CPU_id" name="result_CPU" type="field"> x CPUs<br/>
 
 
 
