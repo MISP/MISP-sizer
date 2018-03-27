@@ -17,3 +17,9 @@ Criterias that have impact on Disk + RAM + CPU from most impacting to less impac
 * Count and size of attributes, objects, events, file attachements (most impact on: DISK)
 * Correlation of event between each other (most impact on: CPU and Memory)
 * Number of users (most impact on: not much)
+
+# Usage
+
+serve local pages through local web server (file:// loading won't work):
+python2 -m SimpleHTTPServer 8000
+open http://127.0.0.1:8000/
