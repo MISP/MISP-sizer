@@ -26,7 +26,7 @@
         }
 
         output {
-            display: block; // SETTINGS: comment this to have compact display
+            display: block;
             font-size: 20px;
             font-weight: bold;
             text-align: center;
@@ -69,27 +69,27 @@
       <div style="border: 1px solid purple; padding: 10px">
         <span style="color:red">JavaScript is not enabled! Please enable javascript and make sure you load this page through a webserver, even if local.<BR/>
 			Quick trick / way to serve local pages quickly:<BR/>
-			python2 -m SimpleHTTPServer 8000
+			python2 -m SimpleHTTPServer 8000<BR/>
 			open http://127.0.0.1:8000/</span>
       </div>
     </noscript>
 <h2>MISP Hardware Sizer (calculator)</h2>
     <div id="js-example-change-attributes">
         <h3>Number of users: <output></output></h3>
-        <input id="users_count_id" name="users_count" type="range" min="10" max="1000" step="5" data-rangeslider>
-        <label style="display:none"><input type="number" name="min" value="10"> <code>min</code></label>
+        <input id="users_count_id" name="users_count" type="range" min="0" max="1000" step="10" data-rangeslider>
+        <label style="display:none"><input type="number" name="min" value="0"> <code>min</code></label>
         <label><input type="number" name="max" value="1000"> <code>max</code></label>
-        <label style="display:none"><input type="number" name="step" value="5"> <code>step</code></label>
+        <label style="display:none"><input type="number" name="step" value="10"> <code>step</code></label>
         <button>Change</button>
     </div>
 
 <HR>
     <div id="js-example-change-attributes">
-        <h3>Number of attributes: <output></output></h3>
-        <input id="attributes_count_id" name="attributes_count" type="range" min="10" max="10000000" step="5" data-rangeslider>
+        <h3>Number of attributes (=field values): <output></output></h3>
+        <input id="attributes_count_id" name="attributes_count" type="range" min="10" max="10000000" step="10" data-rangeslider>
         <label style="display:none"><input type="number" name="min" value="10"> <code>min</code></label>
         <label><input type="number" name="max" value="10000000"> <code>max</code></label>
-        <label style="display:none"><input type="number" name="step" value="5"> <code>step</code></label>
+        <label style="display:none"><input type="number" name="step" value="10"> <code>step</code></label>
         <button>Change</button>
     </div>
 
@@ -99,18 +99,20 @@
 		<P>
 			0% : OSINT free text attributes with no chance of two attributes in the database having the same value.<br/>
 			50% : a given attribute field will have the same value in 50% of events (already a huge value, rare and costly case)
+			If unknown, leave at 25% which is currently a good average.
 		</P>
 		<output></output>
-        <input id="attributes_correlation_id" name="attributes_correlation" type="range" min="0" max="100" value="10" data-rangeslider>
+        <input id="attributes_correlation_id" name="attributes_correlation" type="range" min="0" max="100" value="25" data-rangeslider>
     </div>
 
 <HR>
 
-	Resulting RAM: <input id="result_RAM_id" name="result_RAM" type="field"> Gb<br/>
-	Resulting DISK: <input id="result_DISK_id" name="result_DISK" type="field"> Gb<br/>
-	Resulting CPU: <input id="result_CPU_id" name="result_CPU" type="field"> x CPUs<br/>
+	Resulting RAM: <input id="result_RAM_id" name="result_RAM" type="field"> GB<br/>
+	Resulting DISK: <input id="result_DISK_id" name="result_DISK" type="field"> GB<br/>
+	Resulting CPU: <input id="result_CPU_id" name="result_CPU" type="field"> x vCPUs (XEON Level)<br/>
 
-
+<HR>
+<a href="README.txt">README.txt</a>
 
     <script src="//localhost:8081"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -143,7 +145,7 @@
 			// Please adapt heuristics here
             ram_output.value = 2 + Math.floor(c_users_count / 1000) + Math.floor(c_attributes_correlation / 2) + Math.floor(c_attributes_count / 200000);
             disk_output.value = 2 + Math.floor(c_users_count/10) + Math.floor(c_attributes_correlation/10) + Math.floor(c_attributes_count / 1000);
-			cpu_output.value = Math.floor(c_users_count / 1000.0 + c_attributes_correlation / 15.0 + c_attributes_count / 90000000.0 + 1);
+			cpu_output.value = Math.floor(c_users_count / 1000.0 + c_attributes_correlation / 10.0 + c_attributes_count / 90000000.0 + 1);
 		}
 
         // Example functionality to demonstrate a value feedback
