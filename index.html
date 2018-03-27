@@ -26,11 +26,11 @@
         }
 
         output {
-            display: block;
-            font-size: 30px;
+            display: block; // SETTINGS: comment this to have compact display
+            font-size: 20px;
             font-weight: bold;
             text-align: center;
-            margin: 30px 0;
+            margin: 10px 0;
             width: 100%;
         }
 
@@ -92,7 +92,7 @@
 			50% : a given attribute field value will be in 50% of events
 		</P>
 		<output></output>
-        <input id="attributes_correlation_id" name="attributes_correlation" type="range" min="0" max="100" data-rangeslider>
+        <input id="attributes_correlation_id" name="attributes_correlation" type="range" min="0" max="100" value="10" data-rangeslider>
     </div>
 
 <HR>
@@ -101,7 +101,6 @@
 	result_DISK: <input id="result_DISK_id" name="result_DISK" type="field"> Gb<br/>
 	result_CPU: <input id="result_CPU_id" name="result_CPU" type="field"> x CPUs<br/>
 
-<HR>
 
 
     <script src="//localhost:8081"></script>
@@ -132,9 +131,9 @@
             var ram_output = document.getElementById('result_RAM_id');
             var disk_output = document.getElementById('result_DISK_id');
             var cpu_output = document.getElementById('result_CPU_id');
-            ram_output.value = Math.floor(c_users_count / 1000) + Math.floor(c_attributes_correlation / 2) + Math.floor(c_attributes_count / 20000);
-            disk_output.value = c_users_count * 2 + c_attributes_correlation * 20 + c_attributes_count * 5;
-			cpu_output.value = Math.floor(c_users_count / 200.0 + c_attributes_correlation / 5.0 + c_attributes_count / 300.0 + 1);
+            ram_output.value = 2 + Math.floor(c_users_count / 1000) + Math.floor(c_attributes_correlation / 2) + Math.floor(c_attributes_count / 200000);
+            disk_output.value = 2 + Math.floor(c_users_count/10) + Math.floor(c_attributes_correlation/10) + Math.floor(c_attributes_count / 1000);
+			cpu_output.value = Math.floor(c_users_count / 1000.0 + c_attributes_correlation / 5.0 + c_attributes_count / 90000000.0 + 1);
 		}
 
         // Example functionality to demonstrate a value feedback
