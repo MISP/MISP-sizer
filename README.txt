@@ -20,7 +20,7 @@ MISP is done to be deployable without consuming 8 GB of RAM when empty.
 You can run it on a 2GB RAM machine, with limited disk such as 30GB.
 For sure it can run on less, but then you will be limited later when samples are uploaded for example.
 
-# Notions
+## Notions
 
 Criterias that have impact on Disk + RAM + CPU + ... (from most impacting to less impacting):
 * Count and size of attributes, objects, events, file attachements (most impact on: DISK)
@@ -30,12 +30,13 @@ Criterias that have impact on Disk + RAM + CPU + ... (from most impacting to les
 * Number of displayed web page per minutes (most impact on: CPU and Memory)
 * Number of users (most impact on: not much if they don't browse, already accounted in the webpage/mn metric)
 
-# Limits
+## Limits
 
 This is crude estimation based on many varying parameters that may be totally wrong for your usage or your organization.
 So take these results with cautions.
 
-Examples:
+## Limits Examples:
+
 * If your attributes (alerts fields) are large strings for example, then the required disk size may be MUCH larger.
 * If you plan to attach MANY LARGE FILES to each event, same, required disk size will be larger.
 * If you have few users that do A LOT of REST API queries, required CPU and Memory will need to be larger. (tip: you might want to consider using zmq pubsub instead of REST API polling queries)
