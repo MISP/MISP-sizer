@@ -68,9 +68,9 @@
     <noscript>
       <div style="border: 1px solid purple; padding: 10px">
         <span style="color:red">JavaScript is not enabled! Please enable javascript and make sure you load this page through a webserver, even if local.<BR/>
-			Quick trick / way to serve local pages quickly:<BR/>
-			python2 -m SimpleHTTPServer 8000<BR/>
-			open http://127.0.0.1:8000/</span>
+            Quick trick / way to serve local pages quickly:<BR/>
+            python2 -m SimpleHTTPServer 8000<BR/>
+            open http://127.0.0.1:8000/</span>
       </div>
     </noscript>
 <a href="http://www.misp-project.org/" target="_new"><img src="http://www.misp-project.org/assets/images/misp-small.png?src=sizer" alt="" width="100"></a>
@@ -97,20 +97,20 @@
 <HR>
     <div id="js-example-change-attributes">
         <h3>Percentage of attributes that correlate / overlap:</h3>
-		<P>
-			0% : OSINT free text attributes with no chance of two attributes in the database having the same value.<br/>
-			50% : a given attribute field will have the same value in 50% of events (already a huge value, rare and costly case)<br/>
-			If unknown, leave at 25% which is currently a good average.
-		</P>
-		<output></output>
+        <P>
+            0% : OSINT free text attributes with no chance of two attributes in the database having the same value.<br/>
+            50% : a given attribute field will have the same value in 50% of events (already a huge value, rare and costly case)<br/>
+            If unknown, leave at 25% which is currently a good average.
+        </P>
+        <output></output>
         <input id="attributes_correlation_id" name="attributes_correlation" type="range" min="0" max="100" value="25" data-rangeslider>
     </div>
 
 <HR>
 
-	Resulting RAM: <input id="result_RAM_id" name="result_RAM" type="field"> GB<br/>
-	Resulting DISK: <input id="result_DISK_id" name="result_DISK" type="field"> GB<br/>
-	Resulting CPU: <input id="result_CPU_id" name="result_CPU" type="field"> * vCPU core(s) (Intel Xeon Level)<br/>
+    Resulting RAM: <input id="result_RAM_id" name="result_RAM" type="field"> GB<br/>
+    Resulting DISK: <input id="result_DISK_id" name="result_DISK" type="field"> GB<br/>
+    Resulting CPU: <input id="result_CPU_id" name="result_CPU" type="field"> * vCPU core(s) (Intel Xeon Level)<br/>
 
 <HR>
 <a href="README.txt">README.txt</a> - <a href="https://github.com/MISP/MISP-sizer">GitHub page</a> - <a href="https://github.com/MISP/MISP">GitHub MISP</a> - <a href="http://www.misp-project.org/">Project home</a>
@@ -129,26 +129,24 @@
         // For ie8 support
         var textContent = ('textContent' in document) ? 'textContent' : 'innerText';
 
-		function result_compute() {
-			// var ram_result = 0;
-			// var cpu_count_result = 0;
-			// var disk_result = 0;
+        function result_compute() {
+            // var ram_result = 0;
+            // var cpu_count_result = 0;
+            // var disk_result = 0;
 
-			
-			var c_users_count = parseInt(document.getElementById('users_count_id').value);
-			var c_attributes_count = parseInt(document.getElementById('attributes_count_id').value);
-			var c_attributes_correlation = parseInt(document.getElementById('attributes_correlation_id').value);
+            var c_users_count = parseInt(document.getElementById('users_count_id').value);
+            var c_attributes_count = parseInt(document.getElementById('attributes_count_id').value);
+            var c_attributes_correlation = parseInt(document.getElementById('attributes_correlation_id').value);
 
-			// console.log(c_users_count);
+            // console.log(c_users_count);
             var ram_output = document.getElementById('result_RAM_id');
             var disk_output = document.getElementById('result_DISK_id');
             var cpu_output = document.getElementById('result_CPU_id');
-			// Please adapt heuristics here
+            // Please adapt heuristics here
             ram_output.value = 2 + Math.floor(c_users_count / 1000) + Math.floor(c_attributes_correlation / 2) + Math.floor(c_attributes_count / 200000);
             disk_output.value = 2 + Math.floor(c_users_count/10) + Math.floor(c_attributes_correlation/10) + Math.floor(c_attributes_count / 1000);
-			cpu_output.value = Math.floor(c_users_count / 1000.0 + c_attributes_correlation / 10.0 + c_attributes_count / 90000000.0 + 1);
-		}
-
+            cpu_output.value = Math.floor(c_users_count / 1000.0 + c_attributes_correlation / 10.0 + c_attributes_count / 90000000.0 + 1);
+        }
         // Example functionality to demonstrate a value feedback
         function valueOutput(element) {
             var value = element.value;
@@ -158,12 +156,12 @@
 
         $document.on('input', 'input[type="range"], ' + selector, function(e) {
             valueOutput(e.target);
-			result_compute();
+            result_compute();
         });
 		
-		$( document ).ready(function() {
-		    result_compute();
-		});
+        $( document ).ready(function() {
+            result_compute();
+        });
 
         // Example functionality to demonstrate disabled functionality
         $document .on('click', '#js-example-disabled button[data-behaviour="toggle"]', function(e) {
