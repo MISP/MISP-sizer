@@ -1,5 +1,7 @@
 # Introduction
 
+https://misp-project.org/MISP-sizer/
+
 Sizing hardware for MISP deployment usually comes early in the project, without much view of what kind of sizing may be useful nor what kind of usage volumes will be.
 
 So we try to give here a simple HTML+Javascript-based sizing calculator to determine a basic hardware requirement for you.
@@ -46,3 +48,4 @@ So take these results with cautions.
 This project was done in the course of a few hours, during the Hackathon + Training of March 2018 at CIRCL / SMILE in Luxembourg.
 If you have any request (feature, support, ...): create an issue on github.
 If you want to get in touch with author: --NOSPAM-- phil ..AT.. P1sec ..DOT.. com --THANKS--
+
