@@ -16,7 +16,7 @@ WARNING: Please note that file:// loading won't work.
 That means that you can't use this directly by loading from the filesystem.
 You need to get these files served through HTTP/HTTPS as there is some Javascript and executing it requires it to be served over HTTP/HTTPS.
 
-# Basic information on MISP ressource usage
+# Basic information on MISP resource usage
 
 MISP is done to be deployable without consuming 8 GB of RAM when empty. 
 You can run it on a 2GB RAM machine, with limited disk such as 30GB.
